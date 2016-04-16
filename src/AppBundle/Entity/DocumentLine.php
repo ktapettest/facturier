@@ -47,7 +47,7 @@ class DocumentLine
     /**
      * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Document", inversedBy="documentLines")
+     * @ORM\ManyToOne(targetEntity="Document", inversedBy="documentLines",cascade={"persist"})
      * 
      */
     private $document;    
@@ -74,6 +74,14 @@ class DocumentLine
      */
     private $datUpd;    
 
+    /**
+     * @inheritDoc
+     */
+    public function __toString()
+    {
+        return $this->quantity;
+    } 
+    
     /**
      * Get id
      *
